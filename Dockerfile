@@ -3,6 +3,11 @@ FROM node:24-alpine AS builder
 
 WORKDIR /app
 
+# Prisma 7 loads prisma.config.ts during generate and requires DATABASE_URL.
+# The actual runtime database URL is injected by the deployment environment.
+ARG DATABASE_URL=postgresql://placeholder:placeholder@localhost:5432/placeholder
+ENV DATABASE_URL=${DATABASE_URL}
+
 # Install pnpm
 RUN npm install -g pnpm
 
