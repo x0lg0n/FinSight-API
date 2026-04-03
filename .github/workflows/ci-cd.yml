@@ -92,6 +92,7 @@ jobs:
       - name: Run tests
         env:
           DATABASE_URL: postgresql://test:testpass@localhost:5432/finance_test
+          JWT_SECRET: test-jwt-secret-key-do-not-use-in-production
           NODE_ENV: test
         run: pnpm run test --coverage
 
