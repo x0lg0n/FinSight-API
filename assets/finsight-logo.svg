@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FinSight API logo">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="line" x1="120" y1="340" x2="392" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="64" y="64" width="384" height="384" rx="80" fill="url(#bg)"/>
+
+  <path d="M170 162H326" stroke="#64748B" stroke-width="18" stroke-linecap="round"/>
+  <path d="M170 220H286" stroke="#64748B" stroke-width="18" stroke-linecap="round"/>
+
+  <path d="M140 330L208 286L258 306L332 232L386 204" stroke="url(#line)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="140" cy="330" r="12" fill="#10B981"/>
+  <circle cx="208" cy="286" r="12" fill="#10B981"/>
+  <circle cx="258" cy="306" r="12" fill="#38BDF8"/>
+  <circle cx="332" cy="232" r="12" fill="#38BDF8"/>
+  <circle cx="386" cy="204" r="12" fill="#38BDF8"/>
+
+  <path d="M120 152C120 127.699 139.699 108 164 108H256V196H120V152Z" fill="#0F172A" opacity="0.95"/>
+  <path d="M164 122H246" stroke="#10B981" stroke-width="16" stroke-linecap="round"/>
+  <path d="M164 152H218" stroke="#10B981" stroke-width="16" stroke-linecap="round"/>
+</svg>

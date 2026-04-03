@@ -183,20 +183,10 @@ jobs:
           echo "✅ Pipeline completed successfully"
 
       - name: Notify Slack (optional)
-        if: failure() && secrets.SLACK_WEBHOOK_URL
-        uses: slackapi/slack-github-action@v1.26.0
-        with:
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          payload: |
-            {
-              "text": "🚨 Deployment Pipeline Failed",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*Deployment Pipeline Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref }}\n*Commit:* ${{ github.sha }}"
-                  }
-                }
-              ]
-            }
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"🚨 Deployment Pipeline Failed\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref }}\nCommit: ${{ github.sha }}"}' \
+            "$SLACK_WEBHOOK_URL"

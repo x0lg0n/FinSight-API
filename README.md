@@ -1,6 +1,19 @@
-# FinSight API - Finance Data Processing and Access Control Backend
 
-A production-grade REST API for managing financial records with role-based access control, dashboard analytics, and comprehensive validation.
+<h1 align="center">FinSight API</h1>
+
+<p align="center"><strong>Clarity for every transaction.</strong></p
+>
+
+<p align="center">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-6.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="Express" src="https://img.shields.io/badge/Express-5.2-111827?style=for-the-badge&logo=express&logoColor=white" />
+  <img alt="Prisma" src="https://img.shields.io/badge/Prisma-7.6-0F172A?style=for-the-badge&logo=prisma&logoColor=white" />
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+</p>
+
+<p align="center">
+  A production-grade REST API for financial records, role-based access control, and real-time analytics.
+</p>
 
 ---
 
