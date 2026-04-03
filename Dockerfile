@@ -1,5 +1,5 @@
 # ==================== BUILD STAGE ====================
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN pnpm run prisma:generate
 RUN pnpm run build || true
 
 # ==================== RUNTIME STAGE ====================
-FROM node:18-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -44,7 +44,7 @@ COPY prisma.config.ts /app/
 
 # Copy built application from builder stage
 COPY --from=builder /app/src /app/src/
-COPY --from=builder /app/dist /app/dist/ 2>/dev/null || true
+COPY --from=builder /app/dist /app/dist/
 
 # Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
@@ -59,11 +59,8 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD node -e "require('http').get('http://localhost:3000/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})" || exit 1
 
-# Generate Prisma client at runtime
-RUN pnpm run prisma:generate || true
-
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start server
-CMD ["node", "--loader", "ts-node/esm", "src/server.ts"]
+CMD ["node", "dist/server.js"]
