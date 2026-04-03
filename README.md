@@ -1,4 +1,4 @@
-# Finance Data Processing and Access Control Backend
+# FinSight API - Finance Data Processing and Access Control Backend
 
 A production-grade REST API for managing financial records with role-based access control, dashboard analytics, and comprehensive validation.
 
@@ -53,7 +53,7 @@ This backend demonstrates expert-level software engineering across:
 
 ```bash
 # Navigate to project directory
-cd Zorvyn
+cd FinSight-API
 
 # Install dependencies
 npm install
@@ -338,7 +338,7 @@ API_DOCS_ENABLED=true
 ## 📁 Project Structure
 
 ```folder
-finance-backend/
+FinSight-API/
 ├── prisma/
 │   ├── schema.prisma           # Database schema
 │   └── seed.ts                 # Seed script

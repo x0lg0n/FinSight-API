@@ -1,4 +1,4 @@
-# Backend Assessment Submission - Finance Data Processing System
+# Backend Assessment Submission - FinSight API
 
 ## 📋 Quick Navigation
 
@@ -462,7 +462,7 @@ All errors return consistent JSON format.
 
 ```bash
 # Clone/navigate to project
-cd Zorvyn
+cd FinSight-API
 
 # Install dependencies
 npm install
