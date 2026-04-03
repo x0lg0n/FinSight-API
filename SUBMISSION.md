@@ -481,6 +481,8 @@ npm run db:seed
 npm run dev
 ```
 
+Important: You can use either Docker PostgreSQL or a local PostgreSQL instance. `npm run dev` only requires a valid `DATABASE_URL`.
+
 ### Immediate Actions
 
 1. **Interactive API Testing**

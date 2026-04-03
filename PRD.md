@@ -28,7 +28,7 @@
 
 ## 1. Overview
 
-This document defines the product requirements for a **Finance Data Processing and Access Control Backend** — the authoritative submission for the Backend Engineering Assessment.
+This document defines the product requirements for **FinSight API** — the authoritative submission for the Backend Engineering Assessment.
 
 The system manages financial records, enforces role-based access control, and serves aggregated dashboard analytics to a frontend client. It is built as a single-service REST API using **TypeScript + Express**, backed by **PostgreSQL via Prisma ORM**, with all five core requirements and all seven optional enhancements in scope.
 
@@ -106,7 +106,7 @@ The project uses a **module-based structure**, grouping related routes, controll
 > **Separation rule:** Controllers handle HTTP only (parse request → call service → return response). Services hold all business logic and DB access. This ensures services are unit-testable without HTTP overhead.
 
 ```
-finance-backend/
+FinSight-API/
 ├── prisma/
 │   ├── schema.prisma          ← DB schema (single source of truth)
 │   └── seed.ts                ← Seed admin + demo users
@@ -527,4 +527,4 @@ The `README.md` is the primary evaluator entry point and must allow them to run 
 
 ---
 
-*Finance Backend PRD · x0lg0n · April 2026 · v1.0*
+*FinSight API PRD · x0lg0n · April 2026 · v1.0*

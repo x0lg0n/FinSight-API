@@ -1,7 +1,7 @@
 {
-  "name": "finance-backend",
+  "name": "finsight-api",
   "description": "Finance Management Backend with Node.js, Express, Prisma & PostgreSQL",
-  "repository": "https://github.com/YOUR_USERNAME/Zorvyn",
+  "repository": "https://github.com/x0lg0n/FinSight-API",
   "keywords": [
     "node",
     "express",

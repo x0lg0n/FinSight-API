@@ -28,6 +28,17 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
  */
 app.use(apiLimiter);
 
+/** 
+ * Root endpoint - simple welcome message
+*/
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: 'Welcome to the FinSight API',
+    version: '1.0.0',
+  });
+});
+
 /**
  * Health check endpoint
  */
@@ -48,7 +59,7 @@ if (env.API_DOCS_ENABLED) {
     swaggerUi.serve,
     swaggerUi.setup(swaggerSpec, {
       customCss: '.swagger-ui .topbar { display: none }',
-      customSiteTitle: 'Finance Backend API',
+      customSiteTitle: 'FinSight API',
       swaggerOptions: {
         persistAuthorization: true,
       },

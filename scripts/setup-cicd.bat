@@ -1,5 +1,5 @@
 @echo off
-REM ==================== FINANCE BACKEND CI/CD SETUP (Windows) ====================
+REM ==================== FINSIGHT API CI/CD SETUP (Windows) ====================
 REM This script helps configure GitHub Actions secrets for CI/CD deployment
 REM Run this after creating your GitHub repository
 REM Usage: setup-cicd.bat
@@ -7,7 +7,7 @@ REM Usage: setup-cicd.bat
 setlocal enabledelayedexpansion
 
 echo.
-echo 🚀 Finance Backend CI/CD Setup (Windows)
+echo 🚀 FinSight API CI/CD Setup (Windows)
 echo ======================================
 echo.
 

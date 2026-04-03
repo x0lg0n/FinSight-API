@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# ==================== FINANCE BACKEND CI/CD SETUP ====================
+# ==================== FINSIGHT API CI/CD SETUP ====================
 # This script helps configure GitHub Actions secrets for CI/CD deployment
 # Run this after creating your GitHub repository
 # Usage: bash setup-cicd.sh
 
 set -e
 
-echo "🚀 Finance Backend CI/CD Setup"
+echo "🚀 FinSight API CI/CD Setup"
 echo "================================"
 echo ""
 

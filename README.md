@@ -46,7 +46,8 @@ This backend demonstrates expert-level software engineering across:
 ### Prerequisites
 
 - **Node.js** 20+ ([Download](https://nodejs.org/))
-- **PostgreSQL** 15+ ([Download](https://www.postgresql.org/download/))
+- **Database Option A:** Docker Desktop (to run PostgreSQL via Docker Compose)
+- **Database Option B:** Local PostgreSQL 15+ ([Download](https://www.postgresql.org/download/))
 - **Git** (optional)
 
 ### 1. Clone & Install
@@ -64,8 +65,12 @@ pnpm install
 ### 2. Setup Database
 
 ```bash
-# Create PostgreSQL database
-createdb finance_db
+# Option A: Start PostgreSQL via Docker
+docker-compose up -d
+
+# Option B: Use your local PostgreSQL instance instead
+# Make sure DATABASE_URL in .env points to that instance
+createdb finance_db; -- Create database if using local PostgreSQL
 
 # Push Prisma schema to database
 npm run db:push
@@ -73,6 +78,8 @@ npm run db:push
 # Seed database with demo users and data
 npm run db:seed
 ```
+
+You can use either Docker or local PostgreSQL. The API only requires a valid `DATABASE_URL`.
 
 ### 3. Start the Server
 

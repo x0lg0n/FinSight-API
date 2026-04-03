@@ -1,6 +1,6 @@
 # 🚀 CI/CD Pipeline & Deployment Guide
 
-This document outlines the complete CI/CD pipeline setup and deployment process for the Finance Backend application.
+This document outlines the complete CI/CD pipeline setup and deployment process for the FinSight API application.
 
 ## 📋 Table of Contents
 
@@ -136,7 +136,7 @@ The CI/CD pipeline automatically:
 
 **Build Configuration:**
 
-- **Name:** finance-backend
+- **Name:** finsight-api
 - **Environment:** Docker
 - **Dockerfile:** `Dockerfile`
 - **Instance Type:** Starter (free tier) or higher
@@ -206,7 +206,7 @@ curl https://api.render.com/deploy/srv-YOUR_SERVICE_ID?key=YOUR_API_KEY -X POST
 
 ```bash
 # Build image
-docker build -t finance-backend:latest .
+docker build -t finsight-api:latest .
 
 # Run with docker-compose
 docker-compose up -d
@@ -215,7 +215,7 @@ docker-compose up -d
 docker run -p 3000:3000 \
   -e DATABASE_URL="postgresql://..." \
   -e JWT_SECRET="..." \
-  finance-backend:latest
+  finsight-api:latest
 ```
 
 ### Docker Image Optimization
@@ -359,7 +359,7 @@ cat ~/.github/workflows/ci-cd.yml
 
 ```bash
 # Rebuild with verbose output
-docker build -t finance-backend:latest --progress=plain .
+docker build -t finsight-api:latest --progress=plain .
 
 # Ensure all files are present
 ls -la Dockerfile prisma.config.ts package.json
@@ -407,7 +407,7 @@ pnpm run dev
 pnpm run test --coverage
 
 # Build Docker image
-docker build -t finance-backend:latest .
+docker build -t finsight-api:latest .
 
 # Push to GitHub Container Registry
 docker push ghcr.io/YOUR_USERNAME/Zorvyn:main
@@ -417,7 +417,7 @@ curl https://api.render.com/deploy/srv-YOUR_SERVICE_ID?key=YOUR_API_KEY -X POST
 
 # Check Render logs
 # Via dashboard or Render CLI
-render logs --service finance-backend --follow
+render logs --service finsight-api --follow
 ```
 
 ---

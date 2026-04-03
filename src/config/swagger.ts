@@ -5,12 +5,12 @@ const options: swaggerJsdoc.Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Finance Data Processing Backend API',
+      title: 'FinSight API',
       description:
         'REST API for managing financial records with role-based access control and dashboard analytics.',
       version: '1.0.0',
       contact: {
-        name: 'Finance Backend Team',
+        name: 'FinSight API Team',
         email: 'support@finance.dev',
       },
     },

@@ -1,7 +1,7 @@
 {
-  "name": "finance-backend",
+  "name": "finsight-api",
   "version": "1.0.0",
-  "description": "Finance Data Processing and Access Control Backend",
+  "description": "FinSight API backend for financial records and role-based analytics",
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/server.ts",
