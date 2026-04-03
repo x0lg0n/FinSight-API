@@ -1,0 +1,47 @@
+{
+  "name": "finance-backend",
+  "description": "Finance Management Backend with Node.js, Express, Prisma & PostgreSQL",
+  "repository": "https://github.com/YOUR_USERNAME/Zorvyn",
+  "keywords": [
+    "node",
+    "express",
+    "prisma",
+    "postgresql",
+    "finance",
+    "rest-api"
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment name",
+      "value": "production"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string from Render PostgreSQL",
+      "value": ""
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT token signing (generate with: openssl rand -base64 32)",
+      "value": ""
+    },
+    "JWT_EXPIRY": {
+      "description": "JWT token expiry time (e.g., 7d, 24h, 86400)",
+      "value": "7d"
+    },
+    "PORT": {
+      "description": "Server port",
+      "value": "3000"
+    },
+    "LOG_LEVEL": {
+      "description": "Log level (error, warn, info, debug)",
+      "value": "info"
+    }
+  },
+  "build": {
+    "builder": "docker"
+  },
+  "deploy": {
+    "docker": {
+      "DOCKERFILE_PATH": "Dockerfile"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+# ==================== BUILD STAGE ====================
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy package files
+COPY package.json pnpm-lock.yaml /app/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile --prod=false
+
+# Copy source code
+COPY . /app/
+
+# Generate Prisma client
+RUN pnpm run prisma:generate
+
+# Build TypeScript
+RUN pnpm run build || true
+
+# ==================== RUNTIME STAGE ====================
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy package files
+COPY package.json pnpm-lock.yaml /app/
+
+# Install production dependencies only
+RUN pnpm install --frozen-lockfile --prod=true
+
+# Copy Prisma files
+COPY prisma/ /app/prisma/
+COPY prisma.config.ts /app/
+
+# Copy built application from builder stage
+COPY --from=builder /app/src /app/src/
+COPY --from=builder /app/dist /app/dist/ 2>/dev/null || true
+
+# Create non-root user for security
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+USER nodejs
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:3000/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})" || exit 1
+
+# Generate Prisma client at runtime
+RUN pnpm run prisma:generate || true
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start server
+CMD ["node", "--loader", "ts-node/esm", "src/server.ts"]
