@@ -20,11 +20,14 @@ RUN pnpm install --frozen-lockfile --prod=false
 # Copy source code
 COPY . /app/
 
+# tsconfig.json is excluded by .dockerignore, but the builder needs it for tsc.
+COPY tsconfig.json /app/
+
 # Generate Prisma client
 RUN pnpm run prisma:generate
 
 # Build TypeScript
-RUN pnpm run build || true
+RUN pnpm run build
 
 # ==================== RUNTIME STAGE ====================
 FROM node:24-alpine
