@@ -9,6 +9,8 @@
   <img alt="Express" src="https://img.shields.io/badge/Express-5.2-111827?style=for-the-badge&logo=express&logoColor=white" />
   <img alt="Prisma" src="https://img.shields.io/badge/Prisma-7.6-0F172A?style=for-the-badge&logo=prisma&logoColor=white" />
   <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img alt="CI/CD" src="https://img.shields.io/github/actions/workflow/status/x0lg0n/FinSight-API/ci-cd.yml?branch=master&label=CI%2FCD&logo=githubactions&logoColor=white&style=for-the-badge" />
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </p>
 
 <p align="center">
