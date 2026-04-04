@@ -34,6 +34,10 @@ FROM node:24-alpine
 
 WORKDIR /app
 
+# Prisma 7 config requires DATABASE_URL at generate time.
+ARG DATABASE_URL=postgresql://placeholder:placeholder@localhost:5432/placeholder
+ENV DATABASE_URL=${DATABASE_URL}
+
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
 
@@ -49,6 +53,9 @@ RUN pnpm install --frozen-lockfile --prod=true
 # Copy Prisma files
 COPY prisma/ /app/prisma/
 COPY prisma.config.ts /app/
+
+# Ensure generated runtime client exists inside the production node_modules tree.
+RUN pnpm dlx prisma generate
 
 # Copy built application from builder stage
 COPY --from=builder /app/src /app/src/
